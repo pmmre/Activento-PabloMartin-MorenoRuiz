@@ -2,7 +2,9 @@
 Cómo se indica en el proyecto <https://github.com/Activento/Activento> yo me dedicaría en un principio a la parte de python. Cómo está parte no es relevante para la asignatura IV intentaré perfilar que haré leyendome las prácticas siguientes.
 
 ## Segundo Hito: Integración continua
-En está práctica como elegimos python se desplegará la indraestructura virtual con virtualenv, instalaremos todos las herramientas necesarias. Y personalmente realizaré algunos test que verifiquen el código.
+En está práctica como elegimos python se desplegará la infraestructura virtual con virtualenv, instalaremos todos las herramientas necesarias. Y personalmente realizaré algunos test que verifiquen el código.
+
+Al final me he dedicado a aprender Django bastante bien, he ayudado a crear la aplicacion, he creado los test registrar e iniciar usuario y he ayudado a instalar TRAVIS y configurarlo.
 
 
 ## Tercer hito: Creación y despliegue de una aplicación en un PaaS/SaaS
