@@ -4,8 +4,10 @@ Cómo se indica en el proyecto <https://github.com/Activento/Activento> yo me de
 ## Segundo Hito: Integración continua
 En está práctica como elegimos python se desplegará la infraestructura virtual con virtualenv, instalaremos todos las herramientas necesarias. Y personalmente realizaré algunos test que verifiquen el código.
 
-Al final me he dedicado a aprender Django bastante bien, he ayudado a crear la aplicacion, he creado los test registrar e iniciar usuario y he ayudado a instalar TRAVIS y configurarlo.
+Al final me he dedicado a aprender Django bastante bien, he creardo la aplicacion hasta crear usuarios, listarlos,
+He creado los test de todas las vistas  e iniciar usuario y he ayudado a instalar TRAVIS y configurarlo.
 
+[![Build Status](https://travis-ci.org/pmmre/Activento-PabloMartin-MorenoRuiz.svg)](https://travis-ci.org/pmmre/Activento-PabloMartin-MorenoRuiz)
 
 ## Tercer hito: Creación y despliegue de una aplicación en un PaaS/SaaS
 En está parte ayudare a selecionar una PaaS gratuito de acuerdo a nuestra necesidad. Ayudare con el despliegue de django y contribuyendo con la mejora de la producción de github
