@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <title>views.py</title>
+  <link rel="stylesheet" href="../../pycco.css">
+</head>
+<body>
+<div id="background"></div>
+<div id='container'>
+  <div class='section'>
+    <div class='docs'><h1>views.py</h1></div>
+  </div>
+  <div class='clearall'>
+  <div class='section' id='section-0'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-0'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span>
+<span class="kn">from</span> <span class="nn">django.views.generic</span> <span class="kn">import</span> <span class="n">TemplateView</span><span class="p">,</span><span class="n">CreateView</span><span class="p">,</span><span class="n">ListView</span>
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Usuario</span><span class="p">,</span><span class="n">Categoria</span><span class="p">,</span><span class="n">Sigue</span>
+<span class="kn">from</span> <span class="nn">django.core.urlresolvers</span> <span class="kn">import</span> <span class="n">reverse_lazy</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-1'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-1'>#</a>
+      </div>
+      <p>Create your views here.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-2'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-2'>#</a>
+      </div>
+      <pre><code>Pagina de inicio donde podemos inicar sesion o irnos
+a registrarnos. Si iniciamos sesion nos manda
+al menu de usuario. Si vamos a registrarnos nos
+lleva a la pagina de registrarnos
+</code></pre>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">class</span> <span class="nc">index</span><span class="p">(</span><span class="n">CreateView</span><span class="p">):</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-3'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-3'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>	<span class="n">template_name</span> <span class="o">=</span> <span class="s">&#39;activento/index.html&#39;</span>
+	<span class="n">model</span> <span class="o">=</span> <span class="n">Usuario</span>
+	<span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;nombre&#39;</span><span class="p">,</span><span class="s">&#39;password&#39;</span><span class="p">]</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-4'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-4'>#</a>
+      </div>
+      <pre><code>Este es el menu de usuario donde tenemos todas
+las posibles  opciones de la empresa. Como obtiene
+por metodo post nos dice si se ha inicio bien la empresa
+NECESITA MEJORAS
+</code></pre>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">class</span> <span class="nc">user</span><span class="p">(</span><span class="n">ListView</span><span class="p">):</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-5'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-5'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>	<span class="n">template_name</span> <span class="o">=</span> <span class="s">&#39;activento/user.html&#39;</span>
+	<span class="n">model</span> <span class="o">=</span> <span class="n">Usuario</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-6'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-6'>#</a>
+      </div>
+      <p>fields = ['nombre','calificacion']</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>	<span class="n">success_url</span> <span class="o">=</span> <span class="n">reverse_lazy</span><span class="p">(</span><span class="s">&#39;inicio&#39;</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-7'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-7'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>	<span class="k">def</span> <span class="nf">post</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+		<span class="n">nombre_empresa</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">[</span><span class="s">&#39;nombre&#39;</span><span class="p">]</span>
+		<span class="n">password</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">[</span><span class="s">&#39;password&#39;</span><span class="p">]</span>
+		
+
+		<span class="k">if</span> <span class="n">Usuario</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">nombre</span><span class="o">=</span><span class="n">nombre_empresa</span><span class="p">):</span> 
+			<span class="n">usu</span> <span class="o">=</span> <span class="n">Usuario</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">nombre</span><span class="o">=</span><span class="n">nombre_empresa</span><span class="p">)</span>
+			<span class="k">if</span> <span class="n">usu</span><span class="o">.</span><span class="n">password</span><span class="o">==</span><span class="n">password</span><span class="p">:</span>
+				<span class="n">salida</span><span class="o">=</span><span class="s">&quot;Bienvenido &quot;</span><span class="o">+</span><span class="n">nombre_empresa</span>
+				<span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="p">[</span><span class="s">&quot;usuario&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nombre_empresa</span>
+			<span class="k">else</span><span class="p">:</span>
+				<span class="n">salida</span><span class="o">=</span><span class="s">&quot;Error al introducir usuario o contrasenia&quot;</span>
+			
+		<span class="k">else</span><span class="p">:</span>
+			<span class="n">salida</span><span class="o">=</span><span class="s">&quot;Error al introducir usuario o contrasenia&quot;</span>
+
+		
+		<span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span><span class="s">&#39;activento/user.html&#39;</span><span class="p">,{</span><span class="s">&#39;salida&#39;</span><span class="p">:</span><span class="n">salida</span><span class="p">})</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-8'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-8'>#</a>
+      </div>
+      <pre><code>Se nos muestra el menu para registrarnos, se comprueba
+si la introducion del usuario es correcta
+</code></pre>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">class</span> <span class="nc">registrarse</span><span class="p">(</span><span class="n">CreateView</span><span class="p">):</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-9'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-9'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>	<span class="n">template_name</span> <span class="o">=</span> <span class="s">&#39;activento/registrarse.html&#39;</span>
+	<span class="n">model</span> <span class="o">=</span> <span class="n">Usuario</span>
+	<span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;nombre&#39;</span><span class="p">,</span><span class="s">&#39;password&#39;</span><span class="p">]</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-10'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-10'>#</a>
+      </div>
+      <p>success_url = reverse_lazy('inicio')</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-11'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-11'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>	<span class="k">def</span> <span class="nf">post</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+		<span class="n">nombre_usuario</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">[</span><span class="s">&#39;nombre&#39;</span><span class="p">]</span>
+		<span class="n">password</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">[</span><span class="s">&#39;password&#39;</span><span class="p">]</span>
+		<span class="n">password2</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">[</span><span class="s">&#39;password2&#39;</span><span class="p">]</span>
+
+		<span class="k">if</span> <span class="n">Usuario</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">nombre</span><span class="o">=</span><span class="n">nombre_usuario</span><span class="p">)</span> <span class="p">:</span> 
+			<span class="n">salida</span><span class="o">=</span> <span class="s">&quot;Error al introducir usuario o las contrasenias no coinciden&quot;</span>
+
+		<span class="k">else</span><span class="p">:</span>
+			<span class="k">if</span> <span class="n">password</span> <span class="o">==</span> <span class="n">password2</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">password</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">5</span><span class="p">:</span>
+				<span class="n">usu</span> <span class="o">=</span> <span class="n">Usuario</span><span class="p">(</span><span class="n">nombre</span><span class="o">=</span><span class="n">nombre_usuario</span><span class="p">,</span><span class="n">password</span><span class="o">=</span><span class="n">password</span><span class="p">)</span>
+				<span class="n">usu</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+				<span class="n">salida</span><span class="o">=</span> <span class="s">&quot;Registrado&quot;</span>
+			<span class="k">else</span><span class="p">:</span>
+				<span class="n">salida</span><span class="o">=</span> <span class="s">&quot;Error al introducir usuario o las contrasenas no coinciden&quot;</span>
+
+
+		
+		<span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span><span class="s">&#39;activento/registrarse.html&#39;</span><span class="p">,{</span><span class="s">&#39;salida&#39;</span><span class="p">:</span><span class="n">salida</span><span class="p">})</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-12'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-12'>#</a>
+      </div>
+      <pre><code>Sirve para crear nuevas categorias, nos muestra si las categoria
+se ha creado correctamente o si ya existia una previa
+</code></pre>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">class</span> <span class="nc">crearCategoria</span><span class="p">(</span><span class="n">CreateView</span><span class="p">):</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-13'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-13'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>	<span class="n">template_name</span> <span class="o">=</span> <span class="s">&#39;activento/crearCategoria.html&#39;</span>
+	<span class="n">model</span> <span class="o">=</span> <span class="n">Categoria</span>
+	<span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;nombre&#39;</span><span class="p">,</span><span class="s">&#39;descripcion&#39;</span><span class="p">]</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-14'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-14'>#</a>
+      </div>
+      <p>success_url = reverse_lazy('inicio')</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-15'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-15'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>	<span class="k">def</span> <span class="nf">post</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+		<span class="n">nombre</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">[</span><span class="s">&#39;nombre&#39;</span><span class="p">]</span>
+		<span class="n">descripcion</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">[</span><span class="s">&#39;descripcion&#39;</span><span class="p">]</span>
+
+		<span class="k">if</span> <span class="n">Categoria</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">nombre</span><span class="o">=</span><span class="n">nombre</span><span class="p">)</span> <span class="p">:</span> 
+			<span class="n">salida</span><span class="o">=</span> <span class="s">&quot;La categoria &quot;</span><span class="o">+</span><span class="n">nombre</span><span class="o">+</span><span class="s">&quot; ya existe.&quot;</span> 
+
+		<span class="k">else</span><span class="p">:</span>
+			<span class="n">cat</span> <span class="o">=</span> <span class="n">Categoria</span><span class="p">(</span><span class="n">nombre</span><span class="o">=</span><span class="n">nombre</span><span class="p">,</span><span class="n">descripcion</span><span class="o">=</span><span class="n">descripcion</span><span class="p">)</span>
+			<span class="n">cat</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+			<span class="n">salida</span><span class="o">=</span> <span class="s">&quot;Categoria &quot;</span><span class="o">+</span><span class="n">nombre</span><span class="o">+</span><span class="s">&quot; creada.&quot;</span>
+			
+
+		
+		<span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span><span class="s">&#39;activento/crearCategoria.html&#39;</span><span class="p">,{</span><span class="s">&#39;salida&#39;</span><span class="p">:</span><span class="n">salida</span><span class="p">})</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-16'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-16'>#</a>
+      </div>
+      <pre><code>En esta vista podemos ver todas las categorias existentes
+</code></pre>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">class</span> <span class="nc">listarCategorias</span><span class="p">(</span><span class="n">ListView</span><span class="p">):</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-17'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-17'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>	<span class="n">template_name</span> <span class="o">=</span> <span class="s">&#39;activento/listarCategorias.html&#39;</span>
+	<span class="n">model</span> <span class="o">=</span> <span class="n">Categoria</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-18'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-18'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>	<span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+		<span class="n">usuario_activo</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="p">[</span><span class="s">&quot;usuario&quot;</span><span class="p">]</span>
+		<span class="n">usus</span> <span class="o">=</span> <span class="n">Categoria</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+
+		<span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span><span class="s">&#39;activento/listarCategorias.html&#39;</span><span class="p">,{</span><span class="s">&#39;usuario_activo&#39;</span><span class="p">:</span><span class="n">usuario_activo</span><span class="p">,</span><span class="s">&#39;usuarios&#39;</span><span class="p">:</span><span class="n">usus</span><span class="p">})</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-19'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-19'>#</a>
+      </div>
+      <pre><code>En esta vista vemos todos los usuarios a los que podemos
+seguir
+</code></pre>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">class</span> <span class="nc">listarUsuario</span><span class="p">(</span><span class="n">ListView</span><span class="p">):</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-20'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-20'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>	<span class="n">template_name</span> <span class="o">=</span> <span class="s">&#39;activento/listarUsuario.html&#39;</span>
+	<span class="n">model</span> <span class="o">=</span> <span class="n">Usuario</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-21'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-21'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>	<span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+		<span class="n">usuario_activo</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="p">[</span><span class="s">&quot;usuario&quot;</span><span class="p">]</span>
+		<span class="n">usus</span> <span class="o">=</span> <span class="n">Usuario</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">exclude</span><span class="p">(</span><span class="n">nombre</span><span class="o">=</span><span class="n">usuario_activo</span><span class="p">)</span>
+
+
+		<span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span><span class="s">&#39;activento/listarUsuario.html&#39;</span><span class="p">,{</span><span class="s">&#39;usuario_activo&#39;</span><span class="p">:</span><span class="n">usuario_activo</span><span class="p">,</span><span class="s">&#39;usuarios&#39;</span><span class="p">:</span><span class="n">usus</span><span class="p">})</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-22'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-22'>#</a>
+      </div>
+      <pre><code>Esta vista aun no esta implentado su funcionamiento
+</code></pre>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">class</span> <span class="nc">siguiendo</span><span class="p">(</span><span class="n">ListView</span><span class="p">):</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-23'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-23'>#</a>
+      </div>
+      <p>No implementado aun</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>	<span class="n">template_name</span> <span class="o">=</span> <span class="s">&#39;activento/siguiendo.html&#39;</span>
+	<span class="n">model</span> <span class="o">=</span> <span class="n">Sigue</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-24'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-24'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">class</span> <span class="nc">listarSiguiendo</span><span class="p">(</span><span class="n">TemplateView</span><span class="p">):</span>
+	<span class="n">template_name</span> <span class="o">=</span> <span class="s">&#39;activento/listarSiguiendo.html&#39;</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-25'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-25'>#</a>
+      </div>
+      <p>model = Sigue</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+</div>
+</body>
