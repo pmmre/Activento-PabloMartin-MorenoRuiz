@@ -1,1 +1,1 @@
-web gunicorn Activento.wsgi --log-file - 
+web: gunicorn Activento.wsgi --log-file -

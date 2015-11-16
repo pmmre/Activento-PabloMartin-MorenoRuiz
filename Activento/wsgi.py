@@ -11,7 +11,7 @@ import os
 
 #from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "Empresas.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "Activento.settings")
 
 #application = get_wsgi_application()
 
