@@ -52,11 +52,11 @@ La primera parte es la instalación de los paquetes necesarios y registrarse y d
 
 - Lo primero que hay que hacer es crearse una cuenta en heroku.
 - Una vez hecho esto hay que descargarse la herramientas de heroku introduciendo lo siguiente: wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | sh
-- Hay que tener en cuenta que hacen falta más herramiento que ya instalaremos cómo son forema y ruby. En mi caso tuve un error bastante grave con la instalación de las versiones de ruby al final instale apt-get install ruby1.9.1-full 
-- Una vez realizadas todas las intalacione nos loguemaos en heroku introduciendo heroku login y dándole los datos que nos pidan.
+- Hay que tener en cuenta que hacen falta más herramiento que ya instalaremos cómo son foreman y ruby. En mi caso tuve un error bastante grave con la instalación de las versiones de ruby al final instale apt-get install ruby1.9.1-full 
+- Una vez realizadas todas las intalaciones nos loguemaos en heroku introduciendo heroku login y dándole los datos que nos pidan.
 
 Hay que modificar 3 archivos en el proyecto para que funcione correctamente:
-- Procfile hay que introducirlo y ponerle la siguiente línea web: gunicorn gettingstarted.wsgi --log-file - . Teniendo en cuenta que gettingstarted es el nombre de nuestro proyecto.
+- Procfile hay que introducirlo y ponerle la siguiente línea web: gunicorn Activento.wsgi --log-file - . Teniendo en cuenta que Activento es el nombre de nuestro proyecto.
 - Dentro de la carpeta de configuraciones en el archivo de wsgi hay que introducir lo siguiente:
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "Activento.settings")
@@ -69,7 +69,7 @@ application = Cling(get_wsgi_application())
 
 En el caso de no usar Cling no nos funcionarán los CSS.
 
-- setting hay que configurarlo introduciendo los siguientes parámetros:
+setting hay que configurarlo introduciendo los siguientes parámetros:
 
 ![configurando_setting](http://i393.photobucket.com/albums/pp14/pmmre/Practica3IV/Seleccioacuten_011_zpsgh5dqrko.png)
 
@@ -111,4 +111,6 @@ Introduciendonos en Snap-ci podemos ver la lista de nuestros proyectos a los que
 
 Introducimos el repositorio que queramos en el pipeline, seleccionamos heroku de entre los Deploy y uan vez hecho esto lo configuramos cómo se muestra en la siguiente imagen:
 
-![configuracion_heroku](http://i393.photobucket.com/albums/pp14/pmmre/Practica3IV/Seleccioacuten_014_zpsbwwktmhz.png)
+![configuracion_heroku](http://s393.photobucket.com/user/pmmre/media/Practica3IV/Seleccioacuten_015_zpsb29areco.png.html?sort=3&o=0)
+
+
