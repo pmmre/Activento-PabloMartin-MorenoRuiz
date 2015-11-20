@@ -111,6 +111,6 @@ Introduciendonos en Snap-ci podemos ver la lista de nuestros proyectos a los que
 
 Introducimos el repositorio que queramos en el pipeline, seleccionamos heroku de entre los Deploy y uan vez hecho esto lo configuramos cómo se muestra en la siguiente imagen:
 
-![configuracion_heroku](http://s393.photobucket.com/user/pmmre/media/Practica3IV/Seleccioacuten_015_zpsb29areco.png.html?sort=3&o=0)
+![configuracion_heroku](http://i393.photobucket.com/albums/pp14/pmmre/Practica3IV/Seleccioacuten_015_zpsb29areco.png)
 
 
