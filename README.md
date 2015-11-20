@@ -46,5 +46,69 @@ en el archivo wsgi
 
 y algo similar en el Procfile.
 
+Aquí se explicará un breve resumen de cómo se hizo un despliegue en el PaaS Heroku:
+
+La primera parte es la instalación de los paquetes necesarios y registrarse y darse de alta en heroku.
+
+- Lo primero que hay que hacer es crearse una cuenta en heroku.
+- Una vez hecho esto hay que descargarse la herramientas de heroku introduciendo lo siguiente: wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | sh
+- Hay que tener en cuenta que hacen falta más herramiento que ya instalaremos cómo son forema y ruby. En mi caso tuve un error bastante grave con la instalación de las versiones de ruby al final instale apt-get install ruby1.9.1-full 
+- Una vez realizadas todas las intalacione nos loguemaos en heroku introduciendo heroku login y dándole los datos que nos pidan.
+
+Hay que modificar 3 archivos en el proyecto para que funcione correctamente:
+- Procfile hay que introducirlo y ponerle la siguiente línea web: gunicorn gettingstarted.wsgi --log-file - . Teniendo en cuenta que gettingstarted es el nombre de nuestro proyecto.
+- Dentro de la carpeta de configuraciones en el archivo de wsgi hay que introducir lo siguiente:
+
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "Activento.settings")
+
+from django.core.wsgi import get_wsgi_application
+
+from dj_static import Cling
+
+application = Cling(get_wsgi_application())
+
+En el caso de no usar Cling no nos funcionarán los CSS.
+
+- setting hay que configurarlo introduciendo los siguientes parámetros:
+
+![configurando_setting](http://i393.photobucket.com/albums/pp14/pmmre/Practica3IV/Seleccioacuten_011_zpsgh5dqrko.png)
+
+static_root nos hace falta para los fichero estaticos que se se crean al usar python manage.py collectstatic que usa heroku para ejecutarlo localmente.
+
+Cómo estoy usando base de datos base de datos modifico la configuración del settings para la base de datos por la siguiente:
+
+ON_HEROKU = os.environ.get('ON_HEROKU')
+
+if ON_HEROKU:
+
+    DATABASES = {'default' : dj_database_url.config() }
+
+else:
+
+    DATABASES = {
+
+        'default': {
+
+            'ENGINE': 'django.db.backends.sqlite3',
+
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+
+        }
+
+    }
 
 
+Con esto lo que hago es que si esto en un entorno que no sea heroku ejecuto sqlite3 pero si estoy en heroku utilizo postgressql cómo él me indica.
+
+Y cómo nota importante en los requirements.txt hay que eliminar distributive porque heroku ya lo tiene instalado y si se intenta volver a instalar falla.
+
+Y otro fallo que me costó ver es no ejecutar python manage.py collectstatic antes de enviarlo pués también le hace falta para mostrar al web.
+
+
+### Despliege a Travis y encauzado a heroku con snap-ci
+
+Introduciendonos en Snap-ci podemos ver la lista de nuestros proyectos a los que queremos hacerle cauces (pipelines). En este caso se ha diseñado para que el código una vez introducido en github y pasado travis nos lo mande a heroku.
+
+Introducimos el repositorio que queramos en el pipeline, seleccionamos heroku de entre los Deploy y uan vez hecho esto lo configuramos cómo se muestra en la siguiente imagen:
+
+![configuracion_heroku](http://i393.photobucket.com/albums/pp14/pmmre/Practica3IV/Seleccioacuten_014_zpsbwwktmhz.png)
