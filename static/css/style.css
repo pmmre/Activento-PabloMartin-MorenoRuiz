@@ -1,3 +1,146 @@
+body {
+    background-color: #d0e4fe;
+}
+
+h1 { color: blue;}
+
+p { color: green;}
+
+#men_err{
+	color:red;
+}
+
+.error{ 
+	background: #f0d6d6; 
+	padding: 0.5em; 
+}
+
+header{
+	background-image: url('/static/img/fondo_cabecera.jpeg');
+	background-size: 25%;
+	float:right;
+	height: 30%;
+	width: 100%;
+	font-size: 300%
+	/*margin-left:20%;
+	font-size:150%;
+	color: white;
+	margin-right:30%;*/
+}
+
+#activento{
+	color:yellow;
+
+}
+
+#cabecera{
+	background-image: url('/static/img/fondo_cabecera.jpeg');
+	height: 20%;
+	width: 100%;
+	
+
+
+}
+#cabecera p{
+	color:#FFD700;
+
+
+}
+#cabecera h1{
+	float:right;
+	color:orange;
+	font-size:100%;
+	margin-left:20%;
+	margin-right:20%;
+}
+
+#cabecera a {
+	color:#FFD700;
+
+}
+#img_cabecera{
+	width: 15%; 
+	height: 100%; 
+	margin:0.3%;
+
+}
+
+#img_inicio{
+	width: 40%; 
+	height: 100%; 
+	margin-left:20%;
+	margin-right:20%;
+}
+
+#registrarse{
+	float:right;
+	margin-right: 2%;
+	margin-left: 3%;
+	margin-top:1.5%;
+}
+
+#iniciar{
+	float:right;
+	margin-right: 2%;
+	margin-left: 3%;
+	
+}
+
+#iniciar2{
+	float:right;
+	margin-right: 2%;
+	margin-left: 3%;
+	margin-top:1.5%;
+	color:#FFD700;
+
+}
+
+
+#desloguear{
+	float:right;
+	margin-right: 2%;
+	margin-left: 3%;
+
+}
+
+
+#col_i{
+	float: left;
+	width: 30%;
+
+}
+#col_i p{
+	margin: 5%;
+}
+
+#col_d{
+	float: left;
+	width: 70%;
+
+}
+#col_d p{
+	margin: 6%;
+}
+
+
+#footer{
+	float: left;
+	background-color: blue;
+	width: 100%;
+
+}
+
+#footer p{
+	color: white;
+
+}
+div{
+	margin:0%;
+}
+
+
+
+/*
 body{
 	background-color: #A3B9FF;
 	margin: 5%;
@@ -15,7 +158,5 @@ div{
 	margin-top:2%;
 }
 
-#activento{
-	color:yellow;
 
-}
+--> */

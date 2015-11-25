@@ -31,15 +31,17 @@ class user(ListView):
 	success_url = reverse_lazy('inicio')
 
 	def post(self, request, *args, **kwargs):
-		nombre_empresa = request.POST['nombre']
+		parte_url=""
+		nombre_usuario = request.POST['nombre']
 		password = request.POST['password']
 		
 
-		if Usuario.objects.filter(nombre=nombre_empresa): 
-			usu = Usuario.objects.get(nombre=nombre_empresa)
+		if Usuario.objects.filter(nombre=nombre_usuario): 
+			usu = Usuario.objects.get(nombre=nombre_usuario)
 			if usu.password==password:
-				salida="Bienvenido "+nombre_empresa
-				request.session["usuario"] = nombre_empresa
+				salida="Bienvenido "+nombre_usuario
+				request.session["usuario"] = nombre_usuario
+				parte_url="user.html"
 			else:
 				salida="Error al introducir usuario o contrasenia"
 			
@@ -47,7 +49,7 @@ class user(ListView):
 			salida="Error al introducir usuario o contrasenia"
 
 		
-		return render(request,'activento/user.html',{'salida':salida})
+		return render(request,'activento/'+parte_url,{'salida':salida})
 
 
 
@@ -147,9 +149,6 @@ class listarUsuario(ListView):
 
 
 class siguiendo(ListView):
-	"""
-		Esta vista aun no esta implentado su funcionamiento
-	"""
 	template_name = 'activento/siguiendo.html'
 	model = Sigue
 	
