@@ -127,44 +127,40 @@ Una vez hecho eso enlazamos con github:
 
 ![enlazar3](http://i393.photobucket.com/albums/pp14/pmmre/Practica3IV/Practica4IV/Practica4IV-2/Seleccioacuten_035_zps45kkipb8.png)
 
-Una vez hecho lo esto, selecionamos los repositorios en los que queremos que funcione docker:
+Una vez hecho lo esto, selecionamos los repositorios en los que queremos que funcione docker, en este caso Activente y obtendremos su panel para controlarlo:
 
 ![seleccion](http://i393.photobucket.com/albums/pp14/pmmre/Practica3IV/Practica4IV/Practica4IV-2/Seleccioacuten_036_zpsstmivb0f.png)
 
-Y en este caso seleccionamos el de empresas que llevamos usando hasta ahora en la asignatura:
-
-![seleccion_empresa](http://i393.photobucket.com/albums/pp14/pmmre/Practica3IV/Practica4IV/Practica4IV-2/Seleccioacuten_038_zpsuei9ky9c.png)
-
-Y ya tenemos el panel de administración de este repositorio preparado:
-
-![panel_empresas](http://i393.photobucket.com/albums/pp14/pmmre/Practica3IV/Practica4IV/Practica4IV-2/Seleccioacuten_039_zpsrad8qclb.png)
-
 Ahora lo que hay que hacer es un archivo Dockerfile el directorio de nuestra aplicacioón, simplemente con esto instalamos todo lo necesario para que funcion:
 
-![Dockerfile_Empresas](http://i393.photobucket.com/albums/pp14/pmmre/Practica3IV/Practica4IV/Practica4IV-2/Seleccioacuten_040_zpsb27f1bf5.png)
+![Dockerfile_activento](http://i393.photobucket.com/albums/pp14/pmmre/Practica3IV/Practica4IV/Practica4IV-2/Seleccioacuten_041_zps7f4z7yf2.png)
 
 Lo siguiente que tenemos que hacer es crear la imagen en local para comprobar que funciona y ejecutarla en un navegador, para desarollar esta parte con comodidad he instalado un entorno gráfico.
 
 Para probar que funciona correctamente ejecutamos en local el siguiente comando para contruir una imagen:
 
-![contruir_imagen](http://i393.photobucket.com/albums/pp14/pmmre/Practica3IV/Practica4IV/Practica4IV-2/35.%20construir%20imagen%20local_zpscs4jhkgg.jpg)
+![contruir_imagen](http://i393.photobucket.com/albums/pp14/pmmre/Practica3IV/Practica4IV/Practica4IV-2/41.%20crear%20imagen_zps8udfqvul.jpg)
 
 Una vez contruida la imagen, comprobamos que se ha hecho:
 
-![imagen_construida](http://i393.photobucket.com/albums/pp14/pmmre/Practica3IV/Practica4IV/Practica4IV-2/36.%20iamgenes%20con%20imagen%20local_zpspzgdnwsn.jpg)
+![imagen_construida](http://i393.photobucket.com/albums/pp14/pmmre/Practica3IV/Practica4IV/Practica4IV-2/42.%20imagenes_zpsqtoaclih.jpg)
 
-Ahora ejecutamos la imagen y vemos que ya contiene nuestra aplicación y lo que hacemos ahora es ejecutarla:
+Ahora ejecutamos la imagen::
 
-![ejecución](http://i393.photobucket.com/albums/pp14/pmmre/Practica3IV/Practica4IV/Practica4IV-2/37.%20ejecutar%20imagen_zps1iyyebhf.jpg)
+![ejecución_imagen](http://i393.photobucket.com/albums/pp14/pmmre/Practica3IV/Practica4IV/Practica4IV-2/43.%20Ejecutar%20contenedor_zps4rjpqeoi.jpg)
 
 Necesitamos hace un ifconfig para ver la ip dentro de esta imagen:
 
-![ifconfig](http://i393.photobucket.com/albums/pp14/pmmre/Practica3IV/Practica4IV/Practica4IV-2/38.%20ifconfig_zpscdytqimv.jpg)
+![ifconfig](http://i393.photobucket.com/albums/pp14/pmmre/Practica3IV/Practica4IV/Practica4IV-2/44.%20ifconfig_zpslmkgqtr9.jpg)
 
-Vemos ejecutandose nuestra web en el navegador:
+Y ejecutamos la aplicación:
 
-![en_navegador](http://i393.photobucket.com/albums/pp14/pmmre/Practica3IV/Practica4IV/Practica4IV-2/39.%20navegador_zpsyd9o0vwd.jpg)
+![ejecutar_aplicacion](http://i393.photobucket.com/albums/pp14/pmmre/Practica3IV/Practica4IV/Practica4IV-2/45.%20runserver_zpszmrfkgxy.jpg)
+
+Vemos ejecutándose nuestra web en el navegador:
+
+![en_navegador](http://i393.photobucket.com/albums/pp14/pmmre/Practica3IV/Practica4IV/Practica4IV-2/46.%20Ejecutando_zpsx7vwduwt.jpg)
 
 Y ahora cada vez que hagamos un push en github, se crearán imagenes en dockerhub:
 
-![ejecucion_en_dockerhub](http://i393.photobucket.com/albums/pp14/pmmre/Practica3IV/Practica4IV/Practica4IV-2/40.%20dockerhub%20funcionando_zpsqy6mt6yd.jpg)
+![ejecucion_en_dockerhub](http://i393.photobucket.com/albums/pp14/pmmre/Practica3IV/Practica4IV/Practica4IV-2/Seleccioacuten_042_zpslsgjzvqp.png)
