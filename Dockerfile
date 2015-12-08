@@ -21,9 +21,7 @@ RUN sudo easy_install pip
 RUN sudo pip install --upgrade pip
 
 #Instalar la app
-RUN cd Activento-PabloMartin-MorenoRuiz
- && pip install -r requirements.txt
+RUN cd Activento-PabloMartin-MorenoRuiz && pip install -r requirements.txt
 
 #Migraciones
-RUN cd Activento-PabloMartin-MorenoRuiz
- && python manage.py syncdb --noinput
+RUN cd Activento-PabloMartin-MorenoRuiz && python manage.py syncdb --noinput
